@@ -1,0 +1,7 @@
+[
+  { "id": 1, "titulo": "Don Juan Tenorio", "categoria": "Teatro", "precio": 10, "aforo": 50, "imagen": "teatro.jpg" },
+  { "id": 2, "titulo": "Noche Flamenca", "categoria": "Música", "precio": 12, "aforo": 30, "imagen": "flamenco.jpg" },
+  { "id": 3, "titulo": "Cine de Verano", "categoria": "Cine", "precio": 5, "aforo": 0, "imagen": "cine.jpg" },
+  { "id": 4, "titulo": "Taller Infantil", "categoria": "Infantil", "precio": 3, "aforo": 20, "imagen": "infantil.jpg" },
+  { "id": 5, "titulo": "Monólogo", "categoria": "Comedia", "precio": 8, "aforo": 15, "imagen": "comedia.jpg" }
+]

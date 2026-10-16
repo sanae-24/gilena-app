@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" type="image/png" href="img/v.clara.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gilena APP - Centro Cultural</title>
+    <!-- Tipografía de tu Práctica 2 -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Fase 2 lo vas a necesitar -->
+    
+</head>
+<body>
+<img src="img/v.clara.png" style="position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); width:600px; opacity:0.06; z-index:-1; pointer-events:none;">
+
+
+<header style="background: linear-gradient(90deg, #22345E 0%, #A23131 100%); color: white; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; gap: 15px; flex-wrap: wrap;">
+
+  <div style="display: flex; align-items: center; gap: 25px; flex-wrap: wrap;">
+    <h1 style="margin: 0; font-size: 20px; white-space: nowrap;">GilenaApp - Cultura</h1>
+    <nav style="display: flex; gap: 15px; flex-wrap: wrap; font-size: 14px;">
+      <a href="#" style="color: white; text-decoration: none; border-bottom: 2px solid white;">Inicio</a>
+      <a href="#" style="color: white; text-decoration: none; opacity: 0.9;">Espectáculos</a>
+      <a href="#" style="color: white; text-decoration: none; opacity: 0.9;">Abonos</a>
+      <a href="#" style="color: white; text-decoration: none; opacity: 0.9;">Mi Entrada</a>
+    </nav>
+  </div>
+
+  <button id="btnAdmin" style="background: #1E2A4A; color: white; padding: 8px 18px; border: none; border-radius: 20px; font-weight: bold; cursor: pointer; white-space: nowrap;">
+    🔑 Admin
+  </button>
+
+</header>
+
+<!-- Este div solo lo verá el ADMIN -->
+<div id="panelAdmin" style="display: none; background: #ffe5e5; border: 2px solid rgb(140, 20, 20); padding: 15px; margin: 10px;">
+  <h3>PANEL DE ADMINISTRADOR - Gestión total</h3>
+  <p>Aquí gestionas la página y controlas las reservas</p>
+  <button id="btnCrearPase">Crear nuevo pase (10:00-22:00)</button>
+  <button id="btnVerReservas">Ver todas las reservas</button>
+  <button id="btnSalirAdmin">Salir de modo ADMIN</button>
+  <div id="listaAdmin"></div>
+</div>
+
+<div id="carteleraCiudadano">
+  <!-- Aquí va tu cartelera normal para ciudadanos -->
+</div>
+
+     
+
+
+
+    <main>
+     
+        <section class="banner">
+            <div style="display: flex; align-items: center; gap: 12px; margin-left: 380px;">
+  <img src="img/v.clara.png" alt="Logo Gilena" style="width: 300px; height: 300px; border-radius: 50%; background: rgba(255, 255, 255, 0); padding: 2px; object-fit: contain;">
+  
+</div>
+            <p>Vive la cultura local: teatro, poesía y música en el corazón del pueblo del olivo</p>
+            <button class="btn-primario">Ver cartelera</button>
+        </section>
+
+    
+        <section class="filtros">
+            <h2>Cartelera - Compra tu entrada en 3 pasos</h2>
+            <div class="filtros-controles">
+                <button class="btn-secundario active">Todos</button>
+                <button class="btn-secundario">Teatro</button>
+                <button class="btn-secundario">Poesía</button>
+                <button class="btn-secundario">Música</button>
+            </div>
+        </section>
+
+
+        <div id="contenedor-catalogo" class="grid-catalogo">
+      
+            <article class="tarjeta-card">
+                <span class="etiqueta">ABIERTA</span>
+                <h3>Certamen Poético Villa de Gilena</h3>
+                <p>15 nov - 19:00h | Aforo: 150</p>
+                <button class="btn-primario ver-detalle">Comprar 10€</button>
+            </article>
+
+            <article class="tarjeta-card">
+                <span class="etiqueta proximo">PRÓXIMO</span>
+                <h3>Noche de Flamenco</h3>
+                <p>22 nov - 21:00h | Aforo: 150</p>
+                <button class="btn-primario ver-detalle">Comprar 12€</button>
+            </article>
+
+            <article class="tarjeta-card">
+                <span class="etiqueta">ABIERTA</span>
+                <h3>Teatro Infantil - El Olivo Mágico</h3>
+                <p>23 nov - 18:00h | Aforo: 150</p>
+                <button class="btn-primario ver-detalle">Comprar 8€</button>
+            </article>
+        </div>
+
+        
+
+  
+        <dialog id="modal-detalle">
+            <div class="modal-contenido">
+                <h3 id="modal-titulo">Detalle del espectáculo</h3>
+                <p id="modal-texto">Aquí se mostrará la info con JS</p>
+                <button class="btn-primario" id="cerrar-modal">Cerrar</button>
+            </div>
+        </dialog>
+        <div id="cartelera" style="padding: 20px;"></div>
+    </main>
+<!-- FASE 7.2 - FORMULARIO GRUPO 2 CULTURA -->
+<form id="formCompra" style="margin-top:20px; padding:15px; border:1px solid #333; border-radius:8px;">
+  <h3>Comprar Entradas (Formulario)</h3>
+  <input type="number" id="idEspectaculo" placeholder="ID del espectáculo (1-5)" required style="width:100%; margin-bottom:5px;">
+  <input type="number" id="cantidadEntrada" placeholder="Cantidad" required style="width:100%; margin-bottom:5px;">
+  <select id="perfilEntrada" style="width:100%; margin-bottom:5px;">
+    <option value="GENERAL">General</option>
+    <option value="JUBILADO">Jubilado -30%</option>
+    <option value="INFANTIL">Infantil -50%</option>
+    
+            <h2>Comprar Entradas</h2>
+            <form id="formulario-cultural">
+                <label for="espectaculo">Espectáculo</label>
+                
+
+                
+
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="tu@email.com" required>
+
+                <button type="submit" class="btn-primario">Comprar</button>
+            </form>
+        
+  </select>
+  <button type="submit">Comprar por formulario</button>
+</form>
+
+    <footer>
+        <p>©️ 2026 Ayuntamiento de Gilena - Centro Cultural | Pueblo del Olivo</p>
+        <p>Plaza de la Iglesia s/n - Gilena (Sevilla)</p>
+    </footer>
+
+
+
+
+
+    
+
+   
+   
+
+        <script src="js/app.js"></script>
+       <a href="https://www.gilena.es" target="_blank" style="position:fixed; bottom:15px; right:15px; z-index:999;">
+  <img src="img/escudo-gilena.png" style="width:70px; background:white; border-radius:50%; padding:4px; box-shadow:0 2px 8px rgba(0,0,0,0.2); cursor:pointer;">
+</a>
+</html>
